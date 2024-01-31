@@ -75,10 +75,10 @@
   function removeTransition(e) {
     if(e.propertyName !== 'transform') return; //skips it if it is not a transform NOT transition
 
-    console.log(e.propertyName);
+    this.classList.remove('playing'); //reversing the animation
   }
 
-  const keys = document.querySelectorAll('.keys');
+  const keys = document.querySelectorAll('.key');
   //each key gets a event transition listener and when transistion ends it will remove
   keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
