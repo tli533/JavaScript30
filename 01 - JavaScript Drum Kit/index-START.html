@@ -73,7 +73,9 @@
   });
 
   function removeTransition(e) {
-    console.log(e);
+    if(e.propertyName !== 'transform') return; //skips it if it is not a transform NOT transition
+
+    console.log(e.propertyName);
   }
 
   const keys = document.querySelectorAll('.keys');
