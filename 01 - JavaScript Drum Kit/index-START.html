@@ -59,18 +59,20 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-  window.addEventListener('keydown', function (e) {
+
+  function playSound(e) {
     const audio = document.querySelector(`audio[data-key = "${e.keyCode}"]`);
     const key = document.querySelector(`.key[data-key = "${e.keyCode}"]`); //it now finds the key which is the div
     //this will now link to the css animation 
-  
+    
     if(!audio) return; //stop the function from running if there is no audio.
     audio.currentTime = 0; //rewinds audio to sthe start so you can spam the key.
     audio.play(); //but since we have the audio it will now search for the datakey and play it.
-    
+      
     key.classList.add('playing');
-    
-  });
+      
+  }
+  
 
   function removeTransition(e) {
     if(e.propertyName !== 'transform') return; //skips it if it is not a transform NOT transition
@@ -82,6 +84,8 @@
   //each key gets a event transition listener and when transistion ends it will remove
   keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
+
+  window.addEventListener('keydown', playSound);
 </script>
 
 
