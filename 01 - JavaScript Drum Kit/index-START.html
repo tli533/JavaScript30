@@ -67,9 +67,18 @@
     if(!audio) return; //stop the function from running if there is no audio.
     audio.currentTime = 0; //rewinds audio to sthe start so you can spam the key.
     audio.play(); //but since we have the audio it will now search for the datakey and play it.
-    console.log(key);
+    
+    key.classList.add('playing');
     
   });
+
+  function removeTransition(e) {
+    console.log(e);
+  }
+
+  const keys = document.querySelectorAll('.keys');
+  //each key gets a event transition listener and when transistion ends it will remove
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
 </script>
 
