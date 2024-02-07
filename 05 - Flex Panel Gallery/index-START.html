@@ -97,6 +97,7 @@
     }
 
     .panel.open {
+      flex: 5;/* going to take 5 times the amount extra room asx supposed to 1 hence growing bigger*/
       font-size: 40px;
     }
 
@@ -132,7 +133,19 @@
   </div>
 
   <script>
+    const panels = document.querySelectorAll('.panel');
 
+    function toggleOpen() {
+      this.classList.toggle('open');
+    }
+
+    function toggleActive(e) {
+      console.log(e.propertyName);
+      //this.classList.toggle('open-active');
+    }
+
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
   </script>
 
 
