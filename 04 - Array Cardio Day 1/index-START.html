@@ -133,10 +133,31 @@
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
     
     const transportation = data.reduce(function(obj, item) {
+      if (!obj[item]) {
+        obj[item] = 0;
+      }
+      obj[item]++;
       console.log(item);
       return obj;
-    }, {})
+    }, {
+      
+    })
 
+    console.log(transportation);
+
+    /* //code above does the 0 for you. Creates the blank object and then helps you tally.
+    const transportation = data.reduce(function(obj, item) {
+      obj[item]++;
+      console.log(item);
+      return obj;
+    }, {
+      walk : 0,
+      car : 0,
+      truck : 0,
+      van : 0,
+      bike : 0
+    })
+    */
   </script>
 </body>
 </html>
