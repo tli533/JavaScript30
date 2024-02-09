@@ -20,7 +20,10 @@ const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb
 
 const cities = [];
 
-fetch(endpoint).then(blob => console.log(blob));
+//giving raw data which now returns a massive array of all 1000 cities
+fetch(endpoint)
+  .then(blob => blob.json())  
+  .then(data => console.log(data));
 
 
 </script>
