@@ -18,14 +18,23 @@
 <script>
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
+//this method grabs the data into the cities array while keeping it const
 const cities = [];
 
 //giving raw data which now returns a massive array of all 1000 cities
 fetch(endpoint)
   .then(blob => blob.json())  
-  .then(data => console.log(data));
+  .then(data => cities.push(...data)); //the triple dots is a spread
 
 
+/*
+//this method also works to grab the data into the cities array by changing cities to let
+let cities = [];
+
+fetch(endpoint)
+  .then(blob => blob.json())  
+  .then(data => cities = data);
+  */
 </script>
 </body>
 </html>
