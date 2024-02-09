@@ -26,6 +26,17 @@ fetch(endpoint)
   .then(blob => blob.json())  
   .then(data => cities.push(...data)); //the triple dots is a spread
 
+function findMatches(wordToMatch, cities) {
+  return cities.filter(place => {
+    //here we need to firgure out if the city or state matches was searched
+    //how to put variable in expression?
+    // making a regular expression first, g = global, i = insenstivity
+  
+    const regex = new RegExp(wordToMatch, 'gi');
+    return place.city.match(regex);
+  });
+}
+
 
 /*
 //this method also works to grab the data into the cities array by changing cities to let
