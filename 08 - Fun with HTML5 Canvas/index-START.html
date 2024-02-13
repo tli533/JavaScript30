@@ -16,6 +16,7 @@ canvas.height = window.innerHeight;
 ctx.strokeStyle = '#BADASS';
 ctx.lineJoin ='round';
 ctx.lineCap = 'round';
+ctx.lineWidth = 100;
 
 let isDrawing = false; //only draws when cursor is down
 //creating the starting x and y when drawing a line and finish drawing a line
@@ -24,13 +25,15 @@ let lastY = 0;
 //cool colours
 let hue = 0;
 
+let direction = true;
+
 
 function draw(e) {
   if (!isDrawing) return; //stop function from running if not drawing
   console.log(e);
   ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
 
-  ctx.lineWidth = hue;
+  //ctx.lineWidth = hue;
 
   ctx.beginPath();
   //starting
@@ -45,6 +48,16 @@ function draw(e) {
   if (hue >= 360) {
       hue = 0;
   }
+
+  if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+    direction = !direction;
+  }
+  if(direction) {
+    ctx.lineWidth++;
+  } else {
+    ctx.lineWidth--;
+  }
+
 }
 
 //puts where the line wants to be instead of connecting from last offset values from e
