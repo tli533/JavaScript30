@@ -23,11 +23,21 @@ let lastX = 0;
 let lastY = 0;
 
 function draw(e) {
+  if (!isDrawing) return; //stop function from running if not drawing
   console.log(e);
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(e.offsetX, e.offsetY);//numbers coming from the event 'e'
+  ctx.stroke();
+
 }
 
 //testing in console if 'drawing' works
+//only works when mouse is down and in the window
 canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mousedown', () => isDrawing = true);
+canvas.addEventListener('mouseup', () => isDrawing = false);
+canvas.addEventListener('mouseout', () => isDrawing = false);
 
 </script>
 
