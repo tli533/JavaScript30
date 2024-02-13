@@ -26,9 +26,14 @@ function draw(e) {
   if (!isDrawing) return; //stop function from running if not drawing
   console.log(e);
   ctx.beginPath();
+  //starting
   ctx.moveTo(lastX, lastY);
+  //go to
   ctx.lineTo(e.offsetX, e.offsetY);//numbers coming from the event 'e'
   ctx.stroke();
+
+  lastX = e.offsetX;
+  lastY = e.offsetY;
 
 }
 
