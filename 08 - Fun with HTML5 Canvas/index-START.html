@@ -18,6 +18,16 @@ ctx.lineJoin ='round';
 ctx.lineCap = 'round';
 
 let isDrawing = false; //only draws when cursor is down
+//creating the starting x and y when drawing a line and finish drawing a line
+let lastX = 0;
+let lastY = 0;
+
+function draw(e) {
+  console.log(e);
+}
+
+//testing in console if 'drawing' works
+canvas.addEventListener('mousemove', draw);
 
 </script>
 
