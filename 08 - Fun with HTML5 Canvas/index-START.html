@@ -32,15 +32,20 @@ function draw(e) {
   ctx.lineTo(e.offsetX, e.offsetY);//numbers coming from the event 'e'
   ctx.stroke();
 
-  lastX = e.offsetX;
-  lastY = e.offsetY;
+  [lastX, lastY] = [e.offsetX, e.offsetY];
 
 }
+
+canvas.addEventListener('mousedown', (e) => {
+  isDrawing = true;
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+
+});
 
 //testing in console if 'drawing' works
 //only works when mouse is down and in the window
 canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mousedown', () => isDrawing = true);
+
 canvas.addEventListener('mouseup', () => isDrawing = false);
 canvas.addEventListener('mouseout', () => isDrawing = false);
 
