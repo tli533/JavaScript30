@@ -10,28 +10,35 @@ const skipButtons = document.querySelectorAll('[data-skip]');
 
 
 /*build out functions*/
-
+//play and pause video
 function togglePlay() {
     const method = video.paused ? 'play' : 'pause';
     video[method]();
 
 }
-
+//changing play and pause button icons
 function updateButton() {
     const icon = this.paused ? '►' : '❚❚';
     toggle.textContent = icon;
     console.log(icon);
 }
-
+//skip buttons
 function skip() {
     console.log(this.dataset.skip);
     video.currentTime += parseFloat(this.dataset.skip);
 }
 
+//volume and playrate control
 function handleRangeUpdate() {
     video[this.name] = this.value;
     console.log(this.name);
     console.log(this.value);
+}
+
+//progression bar of video
+function handleProgress() {
+    const percent = (video.currentTime/video.duration) * 100;
+    progressBar.computedStyleMap.flexBasis = `${percent}%`;
 }
 
 /*hook up event listeners*/
