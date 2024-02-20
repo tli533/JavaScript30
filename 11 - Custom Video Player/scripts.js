@@ -14,8 +14,16 @@ const skipButtons = document.querySelector('[data-skip]');
 function togglePlay() {
     const method = video.paused ? 'play' : 'pause';
     video[method]();
+
+}
+
+function updateButton() {
+    console.log('Update the button');
 }
 
 /*hook up event listeners*/
 video.addEventListener('click', togglePlay);
+video.addEventListener('play', updateButton);
+video.addEventListener('pause', updateButton);
+
 toggle.addEventListener('click', togglePlay);
