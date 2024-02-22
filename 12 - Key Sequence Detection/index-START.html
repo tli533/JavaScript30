@@ -7,6 +7,15 @@
     <link rel="icon" href="https://fav.farm/🔥" />
   </head>
   <body>
-    <script></script>
+    <script>
+    
+      const pressed = [];
+      const secretCode = 'wesbos';
+      window.addEventListener('keyup', (e) => {
+        console.log(e.key);
+        pressed.push(e.key);
+        console.log(pressed);
+      })
+    </script>
   </body>
 </html>
