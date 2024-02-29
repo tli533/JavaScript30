@@ -41,6 +41,7 @@
     }
     items.push(item); //now pushing items into the items array from submit box
     populateList(items, itemsList);
+    localStorage.setItem('items', JSON.stringify(items));
     this.reset();
   }
 
