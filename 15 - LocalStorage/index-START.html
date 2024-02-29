@@ -39,7 +39,19 @@
       text,
       done: false
     }
-    console.log(item);
+    items.push(item); //now pushing items into the items array from submit box
+    populateList(items, itemsList);
+    this.reset();
+  }
+
+  function populateList(plates = [], platesList) {
+    platesList.innerHTML = plates.map((plate, i) => {
+      return `
+        <li>
+          <label for = "">${plate.text}</label>
+        </li>
+      `;
+    }).join('');// takes the array map and turns it into one big string
   }
 
   addItems.addEventListener('submit', addItem);
