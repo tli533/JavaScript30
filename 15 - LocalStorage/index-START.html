@@ -29,7 +29,8 @@
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
-  const items = [];
+  //tries to grab form local storage if not there then empty array
+  const items = JSON.parse(localStorage.getItem('items')) || [];
 
   function addItem(e) {
    
@@ -57,6 +58,8 @@
   }
 
   addItems.addEventListener('submit', addItem);
+
+  populateList(items, itemsList);
 
 </script>
 
