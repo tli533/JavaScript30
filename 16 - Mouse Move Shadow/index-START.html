@@ -40,11 +40,11 @@
   const text = hero.querySelector('h1');
 
   function shadow(e) {
-    //const width = hero.offsetWidth;
-    //const height = hero.offsetHeight;
+    const width = hero.offsetWidth;
+    const height = hero.offsetHeight;
 
     //or in one line
-    const { offsetWidth: width, offsetHeight: height } = hero;
+    //const { offsetWidth: width, offsetHeight: height } = hero;
     let { offsetX: x, offsetY: y} = e;
 
     console.log(x,y);
