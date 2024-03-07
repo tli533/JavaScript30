@@ -29,9 +29,17 @@ function paintToCanvas() {
 }
 
 function takePhoto() {
+    //play snap sound
     snap.currentTime = 0;
     snap.play();
+
+    //take data out of the canvas
+    const data = canvas.toDataURL('image/jpeg');
+    console.log(data);
 }
 
 
 getVideo();
+
+
+video,addEventListener('canplay', paintToCanvas);
